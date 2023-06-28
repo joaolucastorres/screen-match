@@ -1,14 +1,21 @@
 package models;
 
-public class Filme extends Titulo{
-private String diretor;
+import interfaces.Classificavel;
 
-public String getDiretor() {
-  return diretor;
-}
+public class Filme extends Titulo implements Classificavel {
+  private String diretor;
 
-public void setDiretor(String diretor) {
-  this.diretor = diretor;
-}
+  public String getDiretor() {
+    return diretor;
+  }
+
+  public void setDiretor(String diretor) {
+    this.diretor = diretor;
+  }
+
+  @Override
+  public int getClassificacao() {
+    return (int) pegaMedia() / 2;
+  }
 
 }

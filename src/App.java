@@ -1,3 +1,5 @@
+import calculos.FiltroRecomendacao;
+import models.Episodio;
 import models.Filme;
 import models.Serie;
 
@@ -7,24 +9,28 @@ public class App {
         starWars.setNome("Star Wars");
         starWars.setAnoDeLancamento(2010);
         starWars.setDuracaoEmMinutos(180);
-
         starWars.exibeFichaTecnica();
         starWars.avalia(10);
         starWars.avalia(8);
         starWars.avalia(6);
-
         System.out.println("Avaliação: " + starWars.pegaMedia() + "/10");
         System.out.println("Total de avaliações: " + starWars.getTotalDeAvaliacoes());
 
         Serie breakingBad = new Serie();
-
         breakingBad.setNome("Breaking Bad");
         breakingBad.setAnoDeLancamento(2005);
         breakingBad.setTemporadas(6);
         breakingBad.setMinutosPorEpisodio(45);
         breakingBad.setEpisodiosPorTemporada(8);
-
         breakingBad.exibeFichaTecnica();
+
+        Episodio episodio = new Episodio();
+        episodio.setTotalAvaliacoes(90);
+        episodio.setSerie(breakingBad);
+        
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(episodio);
+        filtro.filtra(starWars);
 
     }
 }
