@@ -1,6 +1,6 @@
-package models;
+package br.com.alura.screenmatch.models;
 
-import interfaces.Classificavel;
+import br.com.alura.screenmatch.interfaces.Classificavel;
 
 public class Episodio implements Classificavel {
   private int numero;
