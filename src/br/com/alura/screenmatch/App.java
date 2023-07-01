@@ -1,11 +1,15 @@
 package br.com.alura.screenmatch;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.models.Episodio;
 import br.com.alura.screenmatch.models.Filme;
 import br.com.alura.screenmatch.models.Serie;
+import br.com.alura.screenmatch.models.Titulo;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -33,16 +37,24 @@ public class App {
         filtro.filtra(episodio);
         filtro.filtra(starWars);
 
+        Serie theWalkingDead = new Serie("The Walking Dead", 2000);
+
         Filme creed = new Filme("Creed", 2018);
 
         Filme carros = new Filme("Carros", 2008);
 
-        ArrayList<Filme> filmes = new ArrayList<>();
-        filmes.add(starWars);
-        filmes.add(creed);
-        filmes.add(carros);
+        List<Titulo> lista = new ArrayList<>();
+        lista.add(starWars);
+        lista.add(creed);
+        lista.add(carros);
+        lista.add(theWalkingDead);
+        lista.add(breakingBad);
 
-        System.out.println(filmes);
+        Collections.sort(null, null);
+
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+
+        System.out.println(lista);
 
     }
 }
